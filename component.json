@@ -1,0 +1,23 @@
+{
+  "name": "outer-shelljs",
+  "repo": "codeactual/outer-shelljs",
+  "description": "ShellJS extensions",
+  "version": "0.1.0",
+  "keywords": [
+    "shelljs",
+    "extension",
+    "helper",
+    "wrapper"
+  ],
+  "dependencies": {
+    "component/emitter": "64244ad"
+  },
+  "development": {
+    "codeactual/sinon-doublist": "0.2.3",
+    "codeactual/sinon-doublist-fs": "0.1.2"
+  },
+  "scripts": [
+    "index.js"
+  ],
+  "license": "MIT"
+}
