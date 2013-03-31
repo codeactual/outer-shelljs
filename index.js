@@ -25,12 +25,12 @@ emitter(OuterShelljs.prototype);
  * Recursively find all files that match the given regex.
  *
  * @param {string} parent Root dir of search scope.
- * @param {object} filter RegExp instance.
+ * @param {object} regex RegExp instance.
  * @return {array} Matching shelljs.find() results.
  */
-OuterShelljs.prototype.findByRegex = function(parent, filter) {
+OuterShelljs.prototype.findByRegex = function(parent, regex) {
   return this._('find', parent).filter(function(file) {
-    return file.match(filter);
+    return file.match(regex);
   });
 };
 

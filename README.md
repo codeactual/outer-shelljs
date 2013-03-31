@@ -2,11 +2,18 @@
 
 ShellJS extensions
 
+* `findByRegex()`
+* `_(method, ...)` proxy that emits `cmd` and `cmd:<method>` events.
+
 [![Build Status](https://travis-ci.org/codeactual/outer-shelljs.png)](https://travis-ci.org/codeactual/outer-shelljs)
 
 ## Example
 
-
+```js
+var shelljs = new OuterShelljs(require('shelljs'));
+var exists = shelljs._('test', '-e', '/path/to/file');
+var files = shelljs.findByRegex('/path/to/dir', /\.js$/);
+```
 
 ## Installation
 
@@ -22,9 +29,20 @@ Build standalone file in `build/`:
 
 ## API
 
-### [method]
+### #findByRegex(parent, regex)
 
-> [method desc]
+> Recursively find all files that match the given regex.
+
+### #_(method, ...)
+
+> Invoke a native shelljs method.
+
+Emitted events:
+
+* `cmd`: On all commands.
+ * Callback receives: `(method, argArray, returnVal)`
+* `cmd:method`: On `method` command.
+ * Callback receives: `(argArray, returnVal)`
 
 ## License
 
@@ -39,4 +57,4 @@ Build standalone file in `build/`:
 
 ### 0.1.0
 
-* [initial features]
+* Initial API: `_()`, `findByRegex()`
