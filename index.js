@@ -28,7 +28,7 @@ emitter(OuterShelljs.prototype);
  * @param {object} filter RegExp instance.
  * @return {array} Matching shelljs.find() results.
  */
-OuterShelljs.prototype.findByRe = function(parent, filter) {
+OuterShelljs.prototype.findByRegex = function(parent, filter) {
   return this._('find', parent).filter(function(file) {
     return file.match(filter);
   });

@@ -39,9 +39,9 @@ describe('OuterShelljs', function() {
     ];
   });
 
-  describe('#findByRe()', function() {
+  describe('#findByRegex()', function() {
     it('should do filter by regex', function() {
-      this.os.findByRe(this.rootDir, this.jsRe).should.deep.equal(this.jsFiles);
+      this.os.findByRegex(this.rootDir, this.jsRe).should.deep.equal(this.jsFiles);
     });
   });
 
