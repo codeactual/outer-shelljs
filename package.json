@@ -18,6 +18,9 @@
     "type": "git",
     "url": "https://github.com/codeactual/outer-shelljs.git"
   },
+  "peerDependencies": {
+    "shelljs": "~0.1.2"
+  },
   "devDependencies": {
     "chai": "~1.5.0",
     "component": "~0.13.1",
