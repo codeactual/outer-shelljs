@@ -29,7 +29,7 @@ emitter(OuterShelljs.prototype);
  * @return {array} Matching shelljs.find() results.
  */
 OuterShelljs.prototype.findByRe = function(parent, filter) {
-  return this.shelljs.find(parent).filter(function(file) {
+  return this._('find', parent).filter(function(file) {
     return file.match(filter);
   });
 };
