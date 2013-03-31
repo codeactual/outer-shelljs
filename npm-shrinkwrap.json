@@ -10,6 +10,10 @@
       "version": "0.2.1",
       "from": "grunt-shell@0.2.1"
     },
+    "shelljs": {
+      "version": "0.1.2",
+      "from": "shelljs@"
+    },
     "sinon-chai": {
       "version": "2.3.1",
       "from": "sinon-chai@2.3.1"
