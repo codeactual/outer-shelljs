@@ -10,7 +10,7 @@ ShellJS extensions
 ## Example
 
 ```js
-var shelljs = new OuterShelljs(require('shelljs'));
+var shelljs = OuterShelljs.create(require('shelljs'));
 var exists = shelljs._('test', '-e', '/path/to/file');
 var files = shelljs.findByRegex('/path/to/dir', /\.js$/);
 ```
@@ -54,6 +54,10 @@ Emitted events:
     npm test
 
 ## Change Log
+
+### 0.2.0
+
+* Add `create()` to module.
 
 ### 0.1.0
 

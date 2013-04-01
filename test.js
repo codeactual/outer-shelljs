@@ -87,3 +87,13 @@ describe('OuterShelljs', function() {
     });
   });
 });
+
+describe('outer-shelljs', function() {
+  describe('#create()', function() {
+    it('should return new instance', function() {
+      var inst = outerShelljs.create(shelljs);
+      var matcher = sinon.match.instanceOf(OuterShelljs);
+      matcher.test(inst).should.equal(true);
+    });
+  });
+});

@@ -2,6 +2,7 @@ module.exports = function(grunt) {
   'use strict';
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-shell');
 
   grunt.initConfig({
@@ -30,6 +31,18 @@ module.exports = function(grunt) {
         }
       }
     },
+    uglify: {
+      dist: {
+        options: {
+          compress: false,
+          mangle: false,
+          beautify: true
+        },
+        files: {
+          'dist/outer-shelljs.js': 'dist/outer-shelljs.js'
+        }
+      }
+    },
     shell: {
       options: {
         failOnError: true
@@ -38,7 +51,7 @@ module.exports = function(grunt) {
         command: 'component install --dev && component build --standalone OuterShelljs --name outer-shelljs --out dist --dev'
       },
       dist: {
-        command: 'component build --standalone outerShelljs --name outer-shelljs'
+        command: 'component build --standalone outerShelljs --name outer-shelljs --out dist'
       },
       shrinkwrap: {
         command: 'npm shrinkwrap'
@@ -48,5 +61,5 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', ['jshint', 'shell:shrinkwrap']);
   grunt.registerTask('build', ['shell:build']);
-  grunt.registerTask('dist', ['shell:dist']);
+  grunt.registerTask('dist', ['shell:dist', 'uglify:dist']);
 };

@@ -202,6 +202,48 @@
         }
       }
     },
+    "grunt-contrib-uglify": {
+      "version": "0.2.0",
+      "from": "grunt-contrib-uglify@",
+      "dependencies": {
+        "uglify-js": {
+          "version": "2.2.5",
+          "from": "uglify-js@~2.2.1",
+          "dependencies": {
+            "source-map": {
+              "version": "0.1.19",
+              "from": "source-map@~0.1.7",
+              "dependencies": {
+                "amdefine": {
+                  "version": "0.0.4",
+                  "from": "amdefine@>=0.0.4"
+                }
+              }
+            },
+            "optimist": {
+              "version": "0.3.5",
+              "from": "optimist@~0.3.5",
+              "dependencies": {
+                "wordwrap": {
+                  "version": "0.0.2",
+                  "from": "wordwrap@~0.0.2"
+                }
+              }
+            }
+          }
+        },
+        "grunt-lib-contrib": {
+          "version": "0.6.1",
+          "from": "grunt-lib-contrib@~0.6.0",
+          "dependencies": {
+            "zlib-browserify": {
+              "version": "0.0.1",
+              "from": "zlib-browserify@0.0.1"
+            }
+          }
+        }
+      }
+    },
     "component": {
       "version": "0.13.2",
       "from": "component@0.13.2",

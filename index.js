@@ -10,6 +10,7 @@
 
 module.exports = {
   OuterShelljs: OuterShelljs,
+  create: create,
   require: require // Allow tests to use component-land require.
 };
 
@@ -51,3 +52,7 @@ OuterShelljs.prototype._ = function(method) {
   this.emit.apply(this, eventArgs);
   return res;
 };
+
+function create(shelljs) {
+  return new OuterShelljs(shelljs);
+}
