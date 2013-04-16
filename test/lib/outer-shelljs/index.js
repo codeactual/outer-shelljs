@@ -7,12 +7,11 @@ var should = chai.should();
 chai.Assertion.includeStack = true;
 chai.use(require('sinon-chai'));
 
-var outerShelljs = require('./dist/outer-shelljs');
+var outerShelljs = require('../../..');
 var OuterShelljs = outerShelljs.OuterShelljs;
-var requireComponent = outerShelljs.require;
 
-requireComponent('sinon-doublist')(sinon, 'mocha');
-requireComponent('sinon-doublist-fs')(fs, 'mocha');
+require('sinon-doublist').sinonDoublist('mocha');
+require('sinon-doublist-fs').sinonDoublistFs('mocha');
 
 describe('OuterShelljs', function() {
   beforeEach(function() {

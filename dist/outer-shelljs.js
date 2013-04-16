@@ -156,12 +156,12 @@
             return !!this.listeners(event).length;
         };
     });
-    require.register("outer-shelljs/index.js", function(exports, require, module) {
+    require.register("outer-shelljs/lib/outer-shelljs/index.js", function(exports, require, module) {
         "use strict";
         module.exports = {
             OuterShelljs: OuterShelljs,
             create: create,
-            require: require
+            requireComponent: require
         };
         var emitter = require("emitter");
         function OuterShelljs(shelljs) {
@@ -188,6 +188,7 @@
     });
     require.alias("component-emitter/index.js", "outer-shelljs/deps/emitter/index.js");
     require.alias("component-indexof/index.js", "component-emitter/deps/indexof/index.js");
+    require.alias("outer-shelljs/lib/outer-shelljs/index.js", "outer-shelljs/index.js");
     if (typeof exports == "object") {
         module.exports = require("outer-shelljs");
     } else if (typeof define == "function" && define.amd) {

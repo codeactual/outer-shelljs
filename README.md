@@ -17,15 +17,13 @@ var files = shelljs.findByRegex('/path/to/dir', /\.js$/);
 
 ## Installation
 
-### [Component](https://github.com/component/component)
+### [NPM](https://npmjs.org/package/outer-shelljs)
 
-Install to `components/`:
+    npm install outer-shelljs
+
+### API [component](https://github.com/component/component) only
 
     $ component install codeactual/outer-shelljs
-
-Build standalone file in `build/`:
-
-    $ grunt dist
 
 ## API
 
@@ -50,15 +48,4 @@ Emitted events:
 
 ## Tests
 
-    npm install --devDependencies
     npm test
-
-## Change Log
-
-### 0.2.0
-
-* Add `create()` to module.
-
-### 0.1.0
-
-* Initial API: `_()`, `findByRegex()`

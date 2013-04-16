@@ -1,8 +1,8 @@
 {
   "name": "outer-shelljs",
   "description": "ShellJS extensions",
-  "version": "0.2.0",
-  "main": "./dist/outer-shelljs.js",
+  "version": "0.3.0",
+  "main": "index.js",
   "keywords": [],
   "contributors": [
     {
@@ -23,6 +23,8 @@
   },
   "devDependencies": {
     "chai": "~1.5.0",
+    "sinon-doublist": "~0.3.0",
+    "sinon-doublist-fs": "~0.2.0",
     "component": "~0.13.2",
     "grunt": "~0.4.1",
     "grunt-cli": "~0.1.6",
@@ -34,7 +36,7 @@
     "sinon-chai": "~2.3.1"
   },
   "scripts": {
-    "test": "grunt build && mocha --reporter spec test.js"
+    "test": "grunt build && mocha --reporter spec --recursive test/lib"
   },
   "gitemplate": {
     "originSha": "41f3f77174",
