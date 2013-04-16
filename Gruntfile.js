@@ -48,15 +48,18 @@ module.exports = function(grunt) {
         failOnError: true
       },
       build: {
-        command: 'component install --dev && component build --standalone OuterShelljs --name outer-shelljs --out dist --dev'
+        command: 'component install --dev && component build --standalone outerShelljs --name outer-shelljs --out dist --dev'
       },
       dist: {
         command: 'component build --standalone outerShelljs --name outer-shelljs --out dist'
+      },
+      shrinkwrap: {
+        command: 'npm shrinkwrap'
       }
     }
   });
 
   grunt.registerTask('default', ['jshint']);
-  grunt.registerTask('build', ['shell:build']);
-  grunt.registerTask('dist', ['shell:dist', 'uglify:dist']);
+  grunt.registerTask('build', ['default', 'shell:build']);
+  grunt.registerTask('dist', ['default', 'shell:dist', 'uglify:dist', 'shell:shrinkwrap']);
 };

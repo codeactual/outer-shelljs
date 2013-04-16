@@ -164,6 +164,9 @@
             requireComponent: require
         };
         var emitter = require("emitter");
+        function create(shelljs) {
+            return new OuterShelljs(shelljs);
+        }
         function OuterShelljs(shelljs) {
             this.shelljs = shelljs;
         }
@@ -182,9 +185,6 @@
             this.emit.apply(this, eventArgs);
             return res;
         };
-        function create(shelljs) {
-            return new OuterShelljs(shelljs);
-        }
     });
     require.alias("component-emitter/index.js", "outer-shelljs/deps/emitter/index.js");
     require.alias("component-indexof/index.js", "component-emitter/deps/indexof/index.js");
