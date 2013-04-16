@@ -156,39 +156,27 @@
             return !!this.listeners(event).length;
         };
     });
-    require.register("outer-shelljs/lib/outer-shelljs/index.js", function(exports, require, module) {
-        "use strict";
+    require.register("codeactual-extend/index.js", function(exports, require, module) {
+        module.exports = function extend(object) {
+            var args = Array.prototype.slice.call(arguments, 1);
+            for (var i = 0, source; source = args[i]; i++) {
+                if (!source) continue;
+                for (var property in source) {
+                    object[property] = source[property];
+                }
+            }
+            return object;
+        };
+    });
+    require.register("outer-shelljs/lib/component/main.js", function(exports, require, module) {
         module.exports = {
-            OuterShelljs: OuterShelljs,
-            create: create,
             requireComponent: require
-        };
-        var emitter = require("emitter");
-        function create(shelljs) {
-            return new OuterShelljs(shelljs);
-        }
-        function OuterShelljs(shelljs) {
-            this.shelljs = shelljs;
-        }
-        emitter(OuterShelljs.prototype);
-        OuterShelljs.prototype.findByRegex = function(parent, regex) {
-            return this._("find", parent).filter(function(file) {
-                return file.match(regex);
-            });
-        };
-        OuterShelljs.prototype._ = function(method) {
-            var args = [].slice.call(arguments, 1);
-            var res = this.shelljs[method].apply(this.shelljs, args);
-            var eventArgs = [ "cmd", method, args, res ];
-            this.emit.apply(this, eventArgs);
-            eventArgs = [ "cmd:" + method, args, res ];
-            this.emit.apply(this, eventArgs);
-            return res;
         };
     });
     require.alias("component-emitter/index.js", "outer-shelljs/deps/emitter/index.js");
     require.alias("component-indexof/index.js", "component-emitter/deps/indexof/index.js");
-    require.alias("outer-shelljs/lib/outer-shelljs/index.js", "outer-shelljs/index.js");
+    require.alias("codeactual-extend/index.js", "outer-shelljs/deps/extend/index.js");
+    require.alias("outer-shelljs/lib/component/main.js", "outer-shelljs/index.js");
     if (typeof exports == "object") {
         module.exports = require("outer-shelljs");
     } else if (typeof define == "function" && define.amd) {

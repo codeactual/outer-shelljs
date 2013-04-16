@@ -10,11 +10,12 @@
     "wrapper"
   ],
   "dependencies": {
-    "component/emitter": "64244ad"
+    "component/emitter": "64244ad",
+    "codeactual/extend": "0.1.0"
   },
-  "main": "lib/outer-shelljs/index.js",
+  "main": "lib/component/main.js",
   "scripts": [
-    "lib/outer-shelljs/index.js"
+    "lib/component/main.js"
   ],
   "license": "MIT"
 }

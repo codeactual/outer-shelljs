@@ -8,14 +8,14 @@ chai.Assertion.includeStack = true;
 chai.use(require('sinon-chai'));
 
 var outerShelljs = require('../../..');
-var OuterShelljs = outerShelljs.OuterShelljs;
 
 require('sinon-doublist').sinonDoublist('mocha');
-require('sinon-doublist-fs').sinonDoublistFs('mocha');
+var sinonDoublistFs = require('sinon-doublist-fs').sinonDoublistFs;
 
 describe('OuterShelljs', function() {
   beforeEach(function() {
-    this.os = new OuterShelljs(shelljs);
+    this.os = outerShelljs.create();
+    sinonDoublistFs(this);
 
     this.rootDir = '/root';
     this.stubFile(this.rootDir).readdir([
@@ -38,6 +38,10 @@ describe('OuterShelljs', function() {
     ];
   });
 
+  afterEach(function() {
+    this.sandbox.restore();
+  });
+
   describe('#findByRegex()', function() {
     it('should do filter by regex', function() {
       this.os.findByRegex(this.rootDir, this.jsRe).should.deep.equal(this.jsFiles);
@@ -50,7 +54,7 @@ describe('OuterShelljs', function() {
       this.findCmdCb = this.spy();
       this.testCmdCb = this.spy();
 
-      this.os = new OuterShelljs(shelljs);
+      this.os = outerShelljs.create();
       this.os.on('cmd', this.allCmdCb);
       this.os.on('cmd:find', this.findCmdCb);
       this.os.on('cmd:test', this.testCmdCb);
@@ -83,16 +87,6 @@ describe('OuterShelljs', function() {
       testFileExists.call(this);
       this.testCmdCb.should.have.been.called;
       this.findCmdCb.should.not.have.been.called;
-    });
-  });
-});
-
-describe('outer-shelljs', function() {
-  describe('#create()', function() {
-    it('should return new instance', function() {
-      var inst = outerShelljs.create(shelljs);
-      var matcher = sinon.match.instanceOf(OuterShelljs);
-      matcher.test(inst).should.equal(true);
     });
   });
 });

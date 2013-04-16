@@ -1,5 +1,6 @@
 # 0.3.0
 
+* Remove required injection of `shelljs` module.
 * Fix NPM compatibility.
 
 # 0.2.0

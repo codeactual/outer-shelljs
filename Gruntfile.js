@@ -5,6 +5,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-shell');
 
+  var mochaShelljsOpt = {stdout: true, stderr: true};
+
   grunt.initConfig({
     jshint: {
       src: {
@@ -55,6 +57,10 @@ module.exports = function(grunt) {
       },
       shrinkwrap: {
         command: 'npm shrinkwrap'
+      },
+      test_lib: {
+        options: mochaShelljsOpt,
+        command: "mocha --colors --reporter spec --recursive test/lib"
       }
     }
   });
@@ -62,4 +68,5 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['jshint']);
   grunt.registerTask('build', ['default', 'shell:build']);
   grunt.registerTask('dist', ['default', 'shell:dist', 'uglify:dist', 'shell:shrinkwrap']);
+  grunt.registerTask('test', ['build', 'shell:test_lib']);
 };

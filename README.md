@@ -10,7 +10,7 @@ ShellJS extensions
 ## Example
 
 ```js
-var shelljs = OuterShelljs.create(require('shelljs'));
+var shelljs = OuterShelljs.create();
 var exists = shelljs._('test', '-e', '/path/to/file');
 var files = shelljs.findByRegex('/path/to/dir', /\.js$/);
 ```
