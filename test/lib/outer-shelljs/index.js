@@ -9,8 +9,8 @@ chai.use(require('sinon-chai'));
 
 var outerShelljs = require('../../..');
 
-require('sinon-doublist').sinonDoublist('mocha');
-var sinonDoublistFs = require('sinon-doublist-fs').sinonDoublistFs;
+require('sinon-doublist')('mocha');
+var sinonDoublistFs = require('sinon-doublist-fs');
 
 describe('OuterShelljs', function() {
   beforeEach(function() {
