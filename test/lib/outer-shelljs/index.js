@@ -53,8 +53,7 @@ describe('OuterShelljs', function() {
     beforeEach(function() {
       this.textPat = 'nee dle';
       this.textPatFinal = '"nee\\ dle"';
-      this.filePat = '/path/to/hay stack';
-      this.filePatFinal = '"/path/to/hay\\ stack"';
+      this.filePat = '/path/to/haystack';
       this.defFlagsFinal = '-l';
       this.optFlags = '-r';
       this.optFlagsFinal = '-rl';
@@ -71,7 +70,7 @@ describe('OuterShelljs', function() {
     it('should use default args', function() {
       this.os.grep(this.textPat, this.filePat);
       this.execStub.should.have.been.calledWith(
-        [this.defVariant, this.defFlagsFinal, this.textPatFinal, this.filePatFinal].join(' '),
+        [this.defVariant, this.defFlagsFinal, this.textPatFinal, this.filePat].join(' '),
         this.silent
       );
     });
@@ -79,7 +78,7 @@ describe('OuterShelljs', function() {
     it('should detect custom flag', function() {
       this.os.grep(this.optFlags, this.textPat, this.filePat);
       this.execStub.should.have.been.calledWith(
-        [this.defVariant, this.optFlagsFinal, this.textPatFinal, this.filePatFinal].join(' '),
+        [this.defVariant, this.optFlagsFinal, this.textPatFinal, this.filePat].join(' '),
         this.silent
       );
     });
@@ -87,7 +86,7 @@ describe('OuterShelljs', function() {
     it('should detect custom variant', function() {
       this.os.grep(this.textPat, this.filePat, this.optVariant);
       this.execStub.should.have.been.calledWith(
-        [this.optVariant, this.defFlagsFinal, this.textPatFinal, this.filePatFinal].join(' '),
+        [this.optVariant, this.defFlagsFinal, this.textPatFinal, this.filePat].join(' '),
         this.silent
       );
     });
@@ -95,7 +94,7 @@ describe('OuterShelljs', function() {
     it('should detect custom flag and variant', function() {
       this.os.grep(this.optFlags, this.textPat, this.filePat, this.optVariant);
       this.execStub.should.have.been.calledWith(
-        [this.optVariant, this.optFlagsFinal, this.textPatFinal, this.filePatFinal].join(' '),
+        [this.optVariant, this.optFlagsFinal, this.textPatFinal, this.filePat].join(' '),
         this.silent
       );
     });
