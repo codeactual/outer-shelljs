@@ -43,16 +43,18 @@ describe('OuterShelljs', function() {
     this.sandbox.restore();
   });
 
-  describe('#findByRegex()', function() {
+  describe('#findByRegex', function() {
     it('should do filter by regex', function() {
       this.os.findByRegex(this.rootDir, this.jsRe).should.deep.equal(this.jsFiles);
     });
   });
 
-  describe('#grep()', function() {
+  describe('#grep', function() {
     beforeEach(function() {
-      this.textPat = 'needle';
-      this.filePat = '/path/to/haystack';
+      this.textPat = 'nee dle';
+      this.textPatFinal = '"nee\\ dle"';
+      this.filePat = '/path/to/hay stack';
+      this.filePatFinal = '"/path/to/hay\\ stack"';
       this.defFlagsFinal = '-l';
       this.optFlags = '-r';
       this.optFlagsFinal = '-rl';
@@ -68,32 +70,32 @@ describe('OuterShelljs', function() {
 
     it('should use default args', function() {
       this.os.grep(this.textPat, this.filePat);
-      this.execStub.should.have.been.calledWithExactly(
-        [this.defVariant, this.defFlagsFinal, this.textPat, this.filePat].join(' '),
+      this.execStub.should.have.been.calledWith(
+        [this.defVariant, this.defFlagsFinal, this.textPatFinal, this.filePatFinal].join(' '),
         this.silent
       );
     });
 
     it('should detect custom flag', function() {
       this.os.grep(this.optFlags, this.textPat, this.filePat);
-      this.execStub.should.have.been.calledWithExactly(
-        [this.defVariant, this.optFlagsFinal, this.textPat, this.filePat].join(' '),
+      this.execStub.should.have.been.calledWith(
+        [this.defVariant, this.optFlagsFinal, this.textPatFinal, this.filePatFinal].join(' '),
         this.silent
       );
     });
 
     it('should detect custom variant', function() {
       this.os.grep(this.textPat, this.filePat, this.optVariant);
-      this.execStub.should.have.been.calledWithExactly(
-        [this.optVariant, this.defFlagsFinal, this.textPat, this.filePat].join(' '),
+      this.execStub.should.have.been.calledWith(
+        [this.optVariant, this.defFlagsFinal, this.textPatFinal, this.filePatFinal].join(' '),
         this.silent
       );
     });
 
     it('should detect custom flag and variant', function() {
       this.os.grep(this.optFlags, this.textPat, this.filePat, this.optVariant);
-      this.execStub.should.have.been.calledWithExactly(
-        [this.optVariant, this.optFlagsFinal, this.textPat, this.filePat].join(' '),
+      this.execStub.should.have.been.calledWith(
+        [this.optVariant, this.optFlagsFinal, this.textPatFinal, this.filePatFinal].join(' '),
         this.silent
       );
     });
@@ -113,7 +115,7 @@ describe('OuterShelljs', function() {
     });
   });
 
-  describe('#_()', function() {
+  describe('#_', function() {
     beforeEach(function() {
       this.allCmdCb = this.spy();
       this.findCmdCb = this.spy();
