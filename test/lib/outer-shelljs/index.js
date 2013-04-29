@@ -48,6 +48,66 @@ describe('OuterShelljs', function() {
     });
   });
 
+  describe('#grep()', function() {
+    beforeEach(function() {
+      this.textPat = 'needle';
+      this.filePat = '/path/to/haystack';
+      this.defFlagsFinal = '-l';
+      this.optFlags = '-r';
+      this.optFlagsFinal = '-rl';
+      this.optVariant = 'egrep';
+      this.defVariant = 'grep';
+      this.optVariant = 'egrep';
+
+      this.matches = ['foo', 'bar'];
+      this.res = {code: 0, output: this.matches.join('\n')};
+      this.execStub = this.stub(shelljs, 'exec');
+      this.execStub.returns(this.res);
+    });
+
+    it('should use default args', function() {
+      this.os.grep(this.textPat, this.filePat);
+      this.execStub.should.have.been.calledWithExactly(
+        [this.defVariant, this.defFlagsFinal, this.textPat, this.filePat].join(' ')
+      );
+    });
+
+    it('should detect custom flag', function() {
+      this.os.grep(this.optFlags, this.textPat, this.filePat);
+      this.execStub.should.have.been.calledWithExactly(
+        [this.defVariant, this.optFlagsFinal, this.textPat, this.filePat].join(' ')
+      );
+    });
+
+    it('should detect custom variant', function() {
+      this.os.grep(this.textPat, this.filePat, this.optVariant);
+      this.execStub.should.have.been.calledWithExactly(
+        [this.optVariant, this.defFlagsFinal, this.textPat, this.filePat].join(' ')
+      );
+    });
+
+    it('should detect custom flag and variant', function() {
+      this.os.grep(this.optFlags, this.textPat, this.filePat, this.optVariant);
+      this.execStub.should.have.been.calledWithExactly(
+        [this.optVariant, this.optFlagsFinal, this.textPat, this.filePat].join(' ')
+      );
+    });
+
+    it('should detect variant zero exit code', function() {
+      this.os.grep(this.textPat, this.filePat).should.deep.equal(this.matches);
+    });
+
+    it('should detect variant non-zero exit code', function() {
+      this.res.code = 1;
+      this.os.grep(this.textPat, this.filePat).should.deep.equal(this.res);
+    });
+
+    it('should detect variant empty output', function() {
+      this.res.output = '';
+      this.os.grep(this.textPat, this.filePat).should.deep.equal([]);
+    });
+  });
+
   describe('#_()', function() {
     beforeEach(function() {
       this.allCmdCb = this.spy();
