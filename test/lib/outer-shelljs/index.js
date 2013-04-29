@@ -1,6 +1,5 @@
 var sinon = require('sinon');
 var chai = require('chai');
-var shelljs = require('shelljs');
 var fs = require('fs');
 
 var should = chai.should();
@@ -63,7 +62,7 @@ describe('OuterShelljs', function() {
 
       this.matches = ['foo', 'bar'];
       this.res = {code: 0, output: this.matches.join('\n')};
-      this.execStub = this.stub(shelljs, 'exec');
+      this.execStub = this.stub(this.os.shelljs, 'exec');
       this.execStub.returns(this.res);
     });
 
@@ -134,12 +133,12 @@ describe('OuterShelljs', function() {
 
     it('should return result', function() {
       var payload = {res: 1, output: 'world ended'};
-      this.stub(shelljs, 'exec').returns(payload);
+      this.stub(this.os.shelljs, 'exec').returns(payload);
       this.os._('exec').should.deep.equal(payload);
     });
 
     it('should pass-through all args to native method', function() {
-      var execStub = this.stub(shelljs, 'exec');
+      var execStub = this.stub(this.os.shelljs, 'exec');
       this.os._('exec', 1, 2, 3, 4);
       execStub.should.have.been.calledWithExactly(1, 2, 3, 4);
     });
