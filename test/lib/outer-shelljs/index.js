@@ -36,6 +36,8 @@ describe('OuterShelljs', function() {
       this.rootDir + '/b.js',
       this.rootDir + '/d.js'
     ];
+
+    this.silent = {silent: true};
   });
 
   afterEach(function() {
@@ -68,28 +70,32 @@ describe('OuterShelljs', function() {
     it('should use default args', function() {
       this.os.grep(this.textPat, this.filePat);
       this.execStub.should.have.been.calledWithExactly(
-        [this.defVariant, this.defFlagsFinal, this.textPat, this.filePat].join(' ')
+        [this.defVariant, this.defFlagsFinal, this.textPat, this.filePat].join(' '),
+        this.silent
       );
     });
 
     it('should detect custom flag', function() {
       this.os.grep(this.optFlags, this.textPat, this.filePat);
       this.execStub.should.have.been.calledWithExactly(
-        [this.defVariant, this.optFlagsFinal, this.textPat, this.filePat].join(' ')
+        [this.defVariant, this.optFlagsFinal, this.textPat, this.filePat].join(' '),
+        this.silent
       );
     });
 
     it('should detect custom variant', function() {
       this.os.grep(this.textPat, this.filePat, this.optVariant);
       this.execStub.should.have.been.calledWithExactly(
-        [this.optVariant, this.defFlagsFinal, this.textPat, this.filePat].join(' ')
+        [this.optVariant, this.defFlagsFinal, this.textPat, this.filePat].join(' '),
+        this.silent
       );
     });
 
     it('should detect custom flag and variant', function() {
       this.os.grep(this.optFlags, this.textPat, this.filePat, this.optVariant);
       this.execStub.should.have.been.calledWithExactly(
-        [this.optVariant, this.optFlagsFinal, this.textPat, this.filePat].join(' ')
+        [this.optVariant, this.optFlagsFinal, this.textPat, this.filePat].join(' '),
+        this.silent
       );
     });
 
