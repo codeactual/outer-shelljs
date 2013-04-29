@@ -102,8 +102,8 @@ describe('OuterShelljs', function() {
       this.os.grep(this.textPat, this.filePat).should.deep.equal(this.matches);
     });
 
-    it('should detect variant non-zero exit code', function() {
-      this.res.code = 1;
+    it('should detect variant error exit code', function() {
+      this.res.code = 2;
       this.os.grep(this.textPat, this.filePat).should.deep.equal(this.res);
     });
 
