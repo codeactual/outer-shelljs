@@ -1,6 +1,6 @@
 {
   "name": "outer-shelljs",
-  "description": "ShellJS extensions",
+  "description": "ShellJS wrapper (findByRegex, events, etc.)",
   "version": "0.3.0",
   "main": "index.js",
   "keywords": [],
@@ -26,6 +26,7 @@
     "sinon-doublist": "~0.3.0",
     "sinon-doublist-fs": "~0.2.0",
     "component": "~0.13.2",
+    "gitemplate-dox": "~0.1.0",
     "grunt": "~0.4.1",
     "grunt-cli": "~0.1.6",
     "grunt-contrib-jshint": "~0.3.0",

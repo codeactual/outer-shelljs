@@ -1,8 +1,9 @@
 # outer-shelljs
 
-ShellJS extensions
+ShellJS wrapper
 
 * `findByRegex()`
+* `grep()` that accepts any `grep` variant option
 * `_(method, ...)` proxy that emits `cmd` and `cmd:<method>` events.
 
 [![Build Status](https://travis-ci.org/codeactual/outer-shelljs.png)](https://travis-ci.org/codeactual/outer-shelljs)
@@ -21,26 +22,9 @@ var files = shelljs.findByRegex('/path/to/dir', /\.js$/);
 
     npm install outer-shelljs
 
-### API [component](https://github.com/component/component) only
+## API Documentation
 
-    $ component install codeactual/outer-shelljs
-
-## API
-
-### #findByRegex(parent, regex)
-
-> Recursively find all files that match the given regex.
-
-### #_(method, ...)
-
-> Invoke a native shelljs method.
-
-Emitted events:
-
-* `cmd`: On all commands.
- * Callback receives: `(method, argArray, returnVal)`
-* `cmd:method`: On `method` command.
- * Callback receives: `(argArray, returnVal)`
+[OuterShelljs](docs/OuterShelljs.md)
 
 ## License
 
