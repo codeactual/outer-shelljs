@@ -1,3 +1,7 @@
+# 0.3.1
+
+* Remove NPM shrinkwrapping.
+
 # 0.3.0
 
 * Add `grep()`.
