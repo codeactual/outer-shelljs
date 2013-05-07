@@ -3,7 +3,13 @@
   "description": "ShellJS wrapper (findByRegex, events, etc.)",
   "version": "0.3.0",
   "main": "index.js",
-  "keywords": [],
+  "keywords": [
+    "shelljs",
+    "extension",
+    "helper",
+    "wrapper",
+    "events"
+  ],
   "contributors": [
     {
       "name": "David Smith",

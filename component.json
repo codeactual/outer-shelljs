@@ -7,7 +7,8 @@
     "shelljs",
     "extension",
     "helper",
-    "wrapper"
+    "wrapper",
+    "events"
   ],
   "dependencies": {
     "codeactual/extend": "0.1.0"
