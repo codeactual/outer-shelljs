@@ -1,5 +1,6 @@
 # 0.3.0
 
+* Add `grep()`.
 * Remove required injection of `shelljs` module.
 * Fix NPM compatibility.
 
