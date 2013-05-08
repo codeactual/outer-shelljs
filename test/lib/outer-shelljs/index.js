@@ -17,16 +17,14 @@ describe('OuterShelljs', function() {
     sinonDoublistFs(this);
 
     this.rootDir = '/root';
-    this.stubFile(this.rootDir).readdir([
-      this.stubFile(this.rootDir + '/a').readdir([
-        this.stubFile(this.rootDir + '/a/1.js'),
-        this.stubFile(this.rootDir + '/a/2.css'),
-        this.stubFile(this.rootDir + '/a/3.js')
-      ]),
-      this.stubFile(this.rootDir + '/b.js'),
-      this.stubFile(this.rootDir + '/c.png'),
-      this.stubFile(this.rootDir + '/d.js')
-    ]).make();
+    this.stubTree([
+      this.rootDir + '/a/1.js',
+      this.rootDir + '/a/2.css',
+      this.rootDir + '/a/3.js',
+      this.rootDir + '/b.js',
+      this.rootDir + '/c.png',
+      this.rootDir + '/d.js'
+    ]);
 
     this.jsRe = /\.js$/;
     this.jsFiles = [
