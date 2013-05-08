@@ -1,3 +1,7 @@
+# 0.3.3
+
+* Upgrade `apidox` and dependents.
+
 # 0.3.2
 
 * Upgrade `shelljs` to `0.1.3`.

@@ -2,7 +2,7 @@
   "name": "outer-shelljs",
   "repo": "codeactual/outer-shelljs",
   "description": "ShellJS wrapper (findByRegex, events, etc.)",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "keywords": [
     "shelljs",
     "extension",
