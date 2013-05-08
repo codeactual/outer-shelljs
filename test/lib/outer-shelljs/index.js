@@ -16,7 +16,7 @@ describe('OuterShelljs', function() {
     this.os = outerShelljs.create();
     sinonDoublistFs(this);
 
-    this.rootDir = '/root';
+    this.rootDir = __dirname;
     this.stubTree([
       this.rootDir + '/a/1.js',
       this.rootDir + '/a/2.css',
