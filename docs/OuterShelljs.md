@@ -48,7 +48,7 @@ _Source: [lib/outer-shelljs/index.js](../lib/outer-shelljs/index.js)_
 
 # OuterShelljs.prototype.findByRegex(parent, regex)
 
-> Recursively find all files that match the given regex.
+> `find()` wrapper that filters results by `RegExp`.
 
 **Parameters:**
 
