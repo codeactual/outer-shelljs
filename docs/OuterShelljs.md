@@ -46,13 +46,6 @@ _Source: [lib/outer-shelljs/index.js](../lib/outer-shelljs/index.js)_
 
 - `events.EventEmitter`
 
-**Emits events:**
-
-- `cmd`: On all commands
-  - Callback receives: `(method, argArray, returnVal)`
-- `cmd:method`: On `method` command
-  - Callback receives: `(argArray, returnVal)`
-
 # OuterShelljs.prototype.findByRegex(parent, regex)
 
 > Recursively find all files that match the given regex.
