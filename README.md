@@ -1,6 +1,6 @@
 # outer-shelljs
 
-ShellJS wrapper
+[ShellJS](https://github.com/arturadib/shelljs) wrapper
 
 * `findByRegex()`
 * `grep()` that accepts any `grep` variant option
@@ -11,7 +11,7 @@ ShellJS wrapper
 ## Example
 
 ```js
-var shelljs = OuterShelljs.create();
+var shelljs = require('outer-shelljs').create();
 var exists = shelljs._('test', '-e', '/path/to/file');
 var files = shelljs.findByRegex('/path/to/dir', /\.js$/);
 ```
@@ -22,9 +22,9 @@ var files = shelljs.findByRegex('/path/to/dir', /\.js$/);
 
     npm install outer-shelljs
 
-## API Documentation
+## API
 
-[OuterShelljs](docs/OuterShelljs.md)
+[Documentation](docs/OuterShelljs.md)
 
 ## License
 
