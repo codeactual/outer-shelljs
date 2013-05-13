@@ -4,13 +4,13 @@ _Source: [lib/outer-shelljs/index.js](../lib/outer-shelljs/index.js)_
 
 <a name="tableofcontents"></a>
 
-- <a name="toc_exports"></a>[exports.OuterShelljs](#exportsoutershelljs)
-- [exports.create](#exportscreate)
-- [exports.extend](#exportsextendext)
+- <a name="toc_exportsoutershelljs"></a><a name="toc_exports"></a>[exports.OuterShelljs](#exportsoutershelljs)
+- <a name="toc_exportscreate"></a>[exports.create](#exportscreate)
+- <a name="toc_exportsextendext"></a>[exports.extend](#exportsextendext)
 - <a name="toc_outershelljs"></a>[OuterShelljs](#outershelljs)
-- <a name="toc_outershelljsprototype"></a>[OuterShelljs.prototype.findByRegex](#outershelljsprototypefindbyregexparent-regex)
-- [OuterShelljs.prototype.grep](#outershelljsprototypegrepflags-l-textpat-filepat-variantgrep)
-- [OuterShelljs.prototype._](#outershelljsprototype_method-arg)
+- <a name="toc_outershelljsprototypefindbyregexparent-regex"></a><a name="toc_outershelljsprototype"></a>[OuterShelljs.prototype.findByRegex](#outershelljsprototypefindbyregexparent-regex)
+- <a name="toc_outershelljsprototypegrepflags-l-textpat-filepat-variantgrep"></a>[OuterShelljs.prototype.grep](#outershelljsprototypegrepflags-l-textpat-filepat-variantgrep)
+- <a name="toc_outershelljsprototype_method-arg"></a>[OuterShelljs.prototype._](#outershelljsprototype_method-arg)
 
 <a name="exports"></a>
 
