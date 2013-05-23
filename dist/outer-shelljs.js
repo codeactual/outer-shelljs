@@ -101,6 +101,7 @@
         };
     });
     require.alias("codeactual-extend/index.js", "outer-shelljs/deps/extend/index.js");
+    require.alias("codeactual-extend/index.js", "extend/index.js");
     require.alias("outer-shelljs/lib/component/main.js", "outer-shelljs/index.js");
     if (typeof exports == "object") {
         module.exports = require("outer-shelljs");
@@ -109,6 +110,6 @@
             return require("outer-shelljs");
         });
     } else {
-        window["outerShelljs"] = require("outer-shelljs");
+        this["outerShelljs"] = require("outer-shelljs");
     }
 })();
