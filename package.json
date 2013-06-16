@@ -41,7 +41,7 @@
     "sinon": "~1.7.2",
     "sinon-chai": "~2.4.0",
     "node-component-grunt": "git://github.com/codeactual/node-component-grunt.git",
-    "grunt-horde": "~0.3.0"
+    "grunt-horde": "~0.2.1"
   },
   "scripts": {
     "test": "grunt test"
@@ -49,5 +49,6 @@
   "gitemplate": {
     "originSha": "41f3f77174",
     "originUrl": "/var/dev/gitemplate-node-component/.git"
-  }
+  },
+  "author": "David Smith <codeactual@gmail.com>"
 }
