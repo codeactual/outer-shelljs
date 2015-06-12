@@ -1,15 +1,18 @@
-var sinon = require('sinon');
-var chai = require('chai');
-var fs = require('fs');
+/*eslint func-names: 0, no-unused-expressions: 0 */
 
-var should = chai.should();
+'use strict';
+
+const sinon = require('sinon');
+const chai = require('chai');
+
+chai.should();
 chai.Assertion.includeStack = true;
 chai.use(require('sinon-chai'));
 
-var outerShelljs = require('../../..');
+const outerShelljs = require('../../..');
 
 require('sinon-doublist')(sinon, 'mocha');
-var sinonDoublistFs = require('sinon-doublist-fs');
+const sinonDoublistFs = require('sinon-doublist-fs');
 
 describe('OuterShelljs', function() {
   beforeEach(function() {
@@ -131,13 +134,13 @@ describe('OuterShelljs', function() {
     }
 
     it('should return result', function() {
-      var payload = {res: 1, output: 'world ended'};
+      const payload = {res: 1, output: 'world ended'};
       this.stub(this.os.shelljs, 'exec').returns(payload);
       this.os._('exec').should.deep.equal(payload);
     });
 
     it('should pass-through all args to native method', function() {
-      var execStub = this.stub(this.os.shelljs, 'exec');
+      const execStub = this.stub(this.os.shelljs, 'exec');
       this.os._('exec', 1, 2, 3, 4);
       execStub.should.have.been.calledWithExactly(1, 2, 3, 4);
     });
