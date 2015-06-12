@@ -1,3 +1,16 @@
+# 0.4.0
+
+## breaking
+
+- refactor(node): Migrate to ES6 features like `let` and `const`
+  - Switch to `iojs` as only build target
+
+## non-breaking
+
+* chore(npm): Upgrade outdated dependencies
+- refactor(component): Migrate to NPM-only deps
+- refactor(eslint): Migrate to eslint
+
 # 0.3.5
 
 * chore(npm): Upgrade `shelljs` to `0.1.4`
