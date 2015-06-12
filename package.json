@@ -51,7 +51,8 @@
     "originUrl": "/var/dev/gitemplate-node-component/.git"
   },
   "author": "David Smith <codeactual@gmail.com>",
-  "devdir-ci": {
-    "version": 1
-  }
+  "files": [
+    "index.js",
+    "lib"
+  ]
 }
